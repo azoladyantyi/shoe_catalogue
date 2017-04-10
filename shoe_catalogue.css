@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+    font-size: 9em;
+    font-style: italic;
+    color: grey;
+    text-shadow: 4px 4px red;
+    background-color: silver;
+}
+
+.shoe {
+    font-size: 25px;
+    color: black;
+    text-shadow: 2px 2px blue;
+    font-style: oblique;
+    background-color: white;
+}
+table , th, tr , td{
+  border: 1px solid black;
+}
+/*.sneaker{
+  height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+}*/

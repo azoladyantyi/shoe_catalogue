@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>shoe catalogue </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+    <link rel="stylesheet" href="shoe_catalogue.css" type="text/css" />
+</head>
+
+<body>
+<div class="sneaker">
+  <img src = "sneaker.jpg"/>
+</div>
+    <script class="template-selector" type="text/x-handlebars-template">
+
+        <h2>CHOOSE EACH CATAGORY</h2>
+        color:<select class="colorSelect">
+        <option value="red">red</option>
+        <option value="white">white</option>
+        <option value="black">black</option>
+        <option value="brown">brown</option>
+      </select>
+
+      size:<select class="sizeSelect">
+      <option value=""></option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  brand:  <select class="brandSelect">
+    <option value="puma">puma</option>
+    <option value="addidas">addidas</option>
+    <option value="nike">nike</option>
+    <option value="bronx">bronx</option>
+  </select>
+
+        </select>
+
+
+
+    </script>
+
+
+    <h2>Add stock</h2>
+
+    <input type="text" id="color" placeholder="color"><br/>
+    <input type="text" id="price" placeholder="price"><br/>
+    <input type="number" id="size" placeholder="size"><br/>
+    <button id="add" type="submit">Add</button>
+
+    <script class="tableTemplate" type="text/x-handlebars-template">
+      <h2>Available Stock</h2>
+    <table>
+            <tr>
+                <th>color</th>
+                <th>size</th>
+                <th>brand</th>
+                <th>price</th>
+            </tr>
+            {{#each shoes}}
+            <tr>
+                <td>{{color}}</td>
+                <td>{{size}}</td>
+                <td>{{brand}}</td>
+                <td>{{price}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+    <button id="search" type="submit">search</button>
+    <div id="results"></div>
+    <div id="options"></div>
+    <!-- <script id="some-template" type="text/x-handlebars-template">
+
+
+</script> -->
+
+
+</body>
+<script type="text/javascript" src="myshoe.js"></script>
+
+</html>
