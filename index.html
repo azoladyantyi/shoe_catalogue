@@ -22,55 +22,56 @@
             {{/each}}
         </script>
 
-        <h2>Add Stock</h2>
-        color: <input type="text" id="new_color" placeholder="color"> <br><br>
-        size:  <input type="text" id="new_size" placeholder="size"><br><br>
-        brand:  <input type="text" id="new_brand" placeholder="brand"><br><br>
-        price:  <input type="text" id="new_price" placeholder="price"><br>
+        <h2>Add Stock</h2> color: <input type="text" id="new_color" placeholder="color"> <br><br> size: <input type="text" id="new_size" placeholder="size"><br><br> brand: <input type="text" id="new_brand" placeholder="brand"><br><br> price: <input type="text" id="new_price"
+            placeholder="price"><br>
         <input type="button" id="addBtn" value="Add Stock">
 
 
         <h2>CHOOSE EACH CATAGORY</h2>
         <script id="dropTemp" type="text/x-handlebars-template">
-            <select id="colorDropDown">
-              <option value="">select</option>
-              {{#each color}}
-                <option value="{{color}}">{{color}}</option>
+          <select id="colorDropDown">
+            <option selected="true" disabled="disabled">select color</option>
+              {{#each colors}}
+                <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
 
             <select id="sizeDropDown">
-              <option value="">select</option>
-              {{#each size}}
-              <option value="{{size}}">{{size}}</option>
+              <option>select Size</option>
+              {{#each sizes}}
+              <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
 
             <select id="brandDropDown">
-              <option value="">select</option>
-              {{#each brand}}
-              <option value="{{brand}}">{{brand}}</option>
+              <option value>select Brand</option>
+              {{#each brands}}
+              <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
 
             <button type="button" name="searchButton" class="search">Search</button>
         </script>
-        <div id="dropDownOutput"></div>
+        <div id="dropDownOutput">
+
+
+        </div>
 
         <h2>Available Stock</h2>
         <table>
-          <thead>
-            <tr>
-              <th>color</th>
-              <th>size</th>
-              <th>brand</th>
-              <th>price</th>
-            </tr>
-          </thead>
+            <thead>
+                <tr>
+                    <th>color</th>
+                    <th>size</th>
+                    <th>brand</th>
+                    <th>price</th>
+                </tr>
+            </thead>
             <tbody id="tableDisplay">
 
             </tbody>
         </table>
+
     </body>
     <script type="text/javascript" src="shoe_catalogue.js"></script>
 

@@ -17,8 +17,13 @@ var shoeData = [{
         size: 2,
         brand: 'addidas',
         price: 'R275'
-    },  
+    },
 ];
+var dropDownOutput = document.querySelector('#dropDownOutput');
+dropDownOutput.innerHTML = dropDownTemplateInst({
+    key: shoeData
+});
+
 
 var colorMap = {};
 var colorList = [];
@@ -87,18 +92,30 @@ function displayMyShoe(myShoeStock) {
     var color = myShoeColors(myShoeStock);
     var size = myShoesize(myShoeStock);
     var brand = myShoeBrands(myShoeStock);
-    var prices = myShoeBrands(myShoeStock);
+    var prices = myShoePrice(myShoeStock);
 
     var dropDownOutput = document.querySelector('#dropDownOutput');
-    dropDownOutput.innerHTML = dropDownTemplateInst({
-        color: color.sort(),
-        size: size.sort(),
-        brand: brand.sort(),
+    // console.log(color,size,brand);
+    var ogarnisedDropdownData = dropDownTemplateInst({
+        colors: color.sort(),
+        sizes: size.sort(),
+        brands: brand.sort()
     })
+
+    console.log(ogarnisedDropdownData);
+    var colorDropDown = document.querySelector('#colorDropDown');
+    var sizeDropDown = document.querySelector('#sizeDropDown');
+    var brandDropDown = document.querySelector('#brandDropDown');
+    var tableDisplay = document.querySelector('#tableDisplay');
+
     var display = tableTemplateInst({
         shoes: myShoeStock
     });
-    var tableDisplay = document.querySelector('#tableDisplay')
+
+
+
+    dropDownOutput.innerHTML = ogarnisedDropdownData;
+
     tableDisplay.innerHTML = display;
 };
 
@@ -122,13 +139,11 @@ addBtn.addEventListener('click', function() {
 });
 
 displayMyShoe(shoeData)
+
+var colorDropDown = document.querySelector('#colorDropDown');
 dropDownOutput.addEventListener('click', function(evt) {
     if (evt.target.name = "searchButton") {
 
-        var colorDropDown = document.querySelector('#colorDropDown');
-        var sizeDropDown = document.querySelector('#sizeDropDown');
-        var brandDropDown = document.querySelector('#brandDropDown');
-        var priceDropDown = document.querySelector('#priceDropDown');
 
         var searchedColor = [];
         for (var i = 0; i < shoeData.length; i++) {
@@ -139,4 +154,22 @@ dropDownOutput.addEventListener('click', function(evt) {
         }
         displayMyShoe(searchedColor)
     }
+    displayMyShoe(searchedColor)
+
+});
+
+var sizeDropDown = document.querySelector('#sizeDropDown');
+dropDownOutput.addEventListener('click', function(evt) {
+    if (evt.target.name = "searchButton") {
+
+        var searchedSize = [];
+        for (var i = 0; i < shoeData.length; i++) {
+            var myStock = shoeData[i];
+            if (myStock.size === sizeDropDown.value) {
+                searchedSize.push(myStock)
+            }
+        }
+        displayMyShoe(searchedSize)
+    }
+    displayMyShoe(searchedSize)
 });
