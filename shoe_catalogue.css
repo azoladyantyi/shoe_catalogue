@@ -16,6 +16,7 @@ h1 {
 }
 table , th, tr , td{
   border: 1px solid black;
+  background-color: white;
 }
 /*.sneaker{
   height: auto;
