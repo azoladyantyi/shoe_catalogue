@@ -37,22 +37,23 @@
             </select>
 
             <select id="sizeDropDown">
-              <option>select Size</option>
+              <option selected="true" disabled="disabled">select Size</option>
               {{#each sizes}}
               <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
 
             <select id="brandDropDown">
-              <option value>select Brand</option>
+              <option selected="true" disabled="disabled">select Brand</option>
               {{#each brands}}
               <option value="{{this}}">{{this}}</option>
               {{/each}}
             </select>
 
-            <button type="button" name="searchButton" class="search">Search</button>
+
         </script>
-        <div id="dropDownOutput">
+        <button type="button" name="searchButton" id="search">Search</button>
+        <div id="dropDownOutput" name="dropDownOutput">
 
 
         </div>

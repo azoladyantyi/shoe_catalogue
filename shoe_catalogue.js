@@ -15,7 +15,7 @@ var shoeData = [{
     {
         color: 'orange',
         size: 2,
-        brand: 'addidas',
+        brand: 'adidas',
         price: 'R275'
     },
 ];
@@ -102,7 +102,7 @@ function displayMyShoe(myShoeStock) {
         brands: brand.sort()
     })
 
-    console.log(ogarnisedDropdownData);
+    //console.log(ogarnisedDropdownData);
     var colorDropDown = document.querySelector('#colorDropDown');
     var sizeDropDown = document.querySelector('#sizeDropDown');
     var brandDropDown = document.querySelector('#brandDropDown');
@@ -140,10 +140,9 @@ addBtn.addEventListener('click', function() {
 
 displayMyShoe(shoeData)
 
-var colorDropDown = document.querySelector('#colorDropDown');
 dropDownOutput.addEventListener('click', function(evt) {
-    if (evt.target.name = "searchButton") {
-
+    if (evt.target.name = "dropDownOutput") {
+      var dropDownTemplateInst = Handlebars.compile(dropTemp);
 
         var searchedColor = [];
         for (var i = 0; i < shoeData.length; i++) {
@@ -151,25 +150,37 @@ dropDownOutput.addEventListener('click', function(evt) {
             if (myStock.color === colorDropDown.value) {
                 searchedColor.push(myStock)
             }
+
         }
         displayMyShoe(searchedColor)
     }
-    displayMyShoe(searchedColor)
 
+
+    displayMyShoe(searchedColor)
 });
 
-var sizeDropDown = document.querySelector('#sizeDropDown');
-dropDownOutput.addEventListener('click', function(evt) {
-    if (evt.target.name = "searchButton") {
+// dropDownOutput.addEventListener('click', function(evt) {
+//     if (evt.target.name = "dropDownOutput") {
+//         var sizeDropDown = document.querySelector('#sizeDropDown');
+//
+//         var searchedSize = [];
+//         for (var i = 0; i < shoeData.length; i++) {
+//             var myStock = shoeData[i];
+//             if (myStock.size === sizeDropDown.value) {
+//                 searchedSize.push(myStock)
+//             }
+//         }
+//         displayMyShoe(searchedSize)
+//     }
+//     displayMyShoe(searchedSize)
+// });
 
-        var searchedSize = [];
-        for (var i = 0; i < shoeData.length; i++) {
-            var myStock = shoeData[i];
-            if (myStock.size === sizeDropDown.value) {
-                searchedSize.push(myStock)
-            }
-        }
-        displayMyShoe(searchedSize)
-    }
-    displayMyShoe(searchedSize)
+var searchButton = document.getElementById('search');
+
+searchButton.addEventListener('click', function() {
+  var tableTemplateInst = Handlebars.compile(tableTemplate);
+  var tableDisplay = document.querySelector('#tableDisplay');
+  var displayTableResults = tableTemplateInst({shoes : shoeData});
+  tableDisplay.innerHTML = displayTableResults;
+
 });
