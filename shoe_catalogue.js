@@ -135,20 +135,20 @@ addBtn.addEventListener('click', function() {
             price: new_price.value
         })
     }
-     displayMyShoe(shoeData)
+    displayMyShoe(shoeData)
 });
 
 displayMyShoe(shoeData)
 dropDownOutput.addEventListener('click', function(evt) {
     if (evt.target.name = "dropDownOutput") {
-      var dropDownTemplateInst = Handlebars.compile(dropTemp);
+        var dropDownTemplateInst = Handlebars.compile(dropTemp);
 
         var searchedColor = [];
 
 
         for (var i = 0; i < shoeData.length; i++) {
             var myStock = shoeData[i];
-            if (myStock.brand === brandDropDown.value || myStock.color === colorDropDown.value || myStock.size === sizeDropDown.value) {
+            if (myStock.brand === brandDropDown.value || myStock.color === colorDropDown.value || myStock.size === Number(sizeDropDown.value)) {
                 searchedColor.push(myStock)
             }
 
@@ -166,9 +166,11 @@ dropDownOutput.addEventListener('click', function(evt) {
 var searchButton = document.getElementById('search');
 
 searchButton.addEventListener('click', function() {
-  var tableTemplateInst = Handlebars.compile(tableTemplate);
-  var tableDisplay = document.querySelector('#tableDisplay');
-  var displayTableResults = tableTemplateInst({shoes : shoeData});
-  tableDisplay.innerHTML = displayTableResults;
+    var tableTemplateInst = Handlebars.compile(tableTemplate);
+    var tableDisplay = document.querySelector('#tableDisplay');
+    var displayTableResults = tableTemplateInst({
+        shoes: shoeData
+    });
+    tableDisplay.innerHTML = displayTableResults;
 
 });
